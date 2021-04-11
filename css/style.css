@@ -1,0 +1,218 @@
+:root {
+  --font-family-t: "Josefin Sans", sans-serif;
+  --font-family-p: "Newsreader", sans-serif;
+  --background: #2bbeda;
+  --text: #191919;
+  --title: #ffffff;
+  --hint: #cccccc; }
+
+html {
+  font-size: 62.5%; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-t); }
+
+p {
+  font-family: var(--font-family-p);
+  color: var(--text); }
+
+img {
+  max-width: 100%; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-15deg); }
+  40% {
+    transform: rotate(-35deg); }
+  80% {
+    transform: rotate(35deg); }
+  100% {
+    transform: rotate(65deg); } }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.container {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid: "picture header" auto "aside main" 1fr "footer footer" auto / 300px auto; }
+  @media (max-width: 480px) {
+    .container {
+      display: grid;
+      grid: "header" auto "picture" auto "aside" auto "main" auto "footer" auto / auto; } }
+
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--background), var(--hint)); }
+  @media (max-width: 480px) {
+    header {
+      padding: 2rem 3rem; } }
+  header h1 {
+    font-size: 6rem;
+    margin-bottom: 3.5rem;
+    letter-spacing: 1.5rem; }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 4rem; } }
+  header h4 {
+    font-size: 3rem;
+    letter-spacing: 0.5rem; }
+  header span {
+    display: inline-block;
+    animation: bounce 0.5s; }
+
+.picture {
+  grid-area: picture;
+  padding: 3rem;
+  background: var(--hint); }
+  .picture img {
+    border-radius: 50%; }
+
+aside {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  background: linear-gradient(to bottom, var(--hint), white);
+  grid-area: aside; }
+  aside h3 {
+    font-size: 2.5rem;
+    margin: 2rem 0 1.5rem 0; }
+  aside h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem; }
+  aside p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem; }
+  aside .row {
+    margin: 2rem 0;
+    height: 5px;
+    width: 20rem;
+    background: var(--hint);
+    position: relative; }
+    aside .row .bar {
+      position: absolute;
+      height: 5px;
+      top: 0;
+      left: 0;
+      width: 80%;
+      background: var(--background); }
+    aside .row .dot {
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background: var(--background);
+      left: calc(80% - 5px);
+      top: -2.5px;
+      transform: rotate(45deg); }
+  aside .stars-container {
+    margin: 1rem; }
+    aside .stars-container i {
+      font-size: 2rem;
+      margin: 0 0.6rem;
+      color: var(--hint); }
+    aside .stars-container .stars-color {
+      color: var(--background); }
+  aside .social-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    aside .social-content:hover {
+      color: var(--background);
+      transform: scale(1.2); }
+    aside .social-content i {
+      padding: 1rem;
+      font-size: 2.3rem; }
+    aside .social-content a {
+      margin: 0;
+      font-size: 1.6rem; }
+
+main {
+  padding: 5rem; }
+  @media (max-width: 480px) {
+    main {
+      padding: 3rem; } }
+  main h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem; }
+  main p {
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    text-align: start; }
+  main .separator {
+    margin: 4rem;
+    border: 1px solid var(--text);
+    background: var(--text);
+    width: 300px; }
+
+.contain .experiences {
+  margin: 3rem 0;
+  display: grid;
+  grid: "timeline content" auto / 100px auto; }
+  .contain .experiences .timeline {
+    grid-area: timeline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: gray; }
+  .contain .experiences .content {
+    grid-area: content; }
+    .contain .experiences .content h2 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem; }
+    .contain .experiences .content h4 {
+      font-size: 1.7rem;
+      font-weight: 400; }
+    .contain .experiences .content p {
+      font-size: 1.5rem; }
+
+footer {
+  grid-area: footer;
+  padding: 3rem;
+  background: var(--background); }
+  footer h2 {
+    padding: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--title); }
+  footer form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    footer form i {
+      font-size: 3rem;
+      margin: 0 1.5rem;
+      color: var(--title); }
+    footer form input {
+      border: 0;
+      border-bottom: 1px solid var(--hint);
+      background: var(--background);
+      padding: 1rem; }
+      footer form input::placeholder {
+        color: var(--hint); }

@@ -1,0 +1,243 @@
+@import "variables";
+@import "general";
+@import "animations";
+@import "mediaqueries";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid:
+    "picture header" auto
+    "aside main" 1fr
+    "footer footer" auto
+    / 300px auto;
+  @include xs {
+    display: grid;
+    grid:
+      "header" auto
+      "picture" auto
+      "aside" auto
+      "main" auto
+      "footer" auto
+      / auto;
+  }
+}
+
+// header
+
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include xs {
+    padding: 2rem 3rem;
+  }
+  background: linear-gradient(to right, var(--background), var(--hint));
+  h1 {
+    font-size: 6rem;
+    margin-bottom: 3.5rem;
+    letter-spacing: 1.5rem;
+    @include xs {
+      font-size: 4rem;
+    }
+  }
+  h4 {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+  }
+  span {
+    display: inline-block;
+    animation: bounce 0.5s;
+  }
+}
+
+.picture {
+  grid-area: picture;
+  padding: 3rem;
+  background: var(--hint);
+  img {
+    border-radius: 50%;
+  }
+}
+
+// aside
+
+aside {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  background: linear-gradient(to bottom, var(--hint), white);
+  grid-area: aside;
+  h3 {
+    font-size: 2.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  .row {
+    margin: 2rem 0;
+    height: 5px;
+    width: 20rem;
+    background: var(--hint);
+    position: relative;
+    .bar {
+      position: absolute;
+      height: 5px;
+      top: 0;
+      left: 0;
+      width: 80%;
+      background: var(--background);
+    }
+    .dot {
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background: var(--background);
+      left: calc(80% - 5px);
+      top: -2.5px;
+      transform: rotate(45deg);
+    }
+  }
+  .stars-container {
+    margin: 1rem;
+    i {
+      font-size: 2rem;
+      margin: 0 0.6rem;
+      color: var(--hint);
+    }
+    .stars-color {
+      color: var(--background);
+    }
+  }
+  .social-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      color: var(--background);
+      transform: scale(1.2);
+    }
+    i {
+      padding: 1rem;
+      font-size: 2.3rem;
+    }
+    a {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// main
+
+main {
+  padding: 5rem;
+  @include xs {
+    padding: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+  }
+  p {
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    text-align: start;
+  }
+  .separator {
+    margin: 4rem;
+    border: 1px solid var(--text);
+    background: var(--text);
+    width: 300px;
+  }
+}
+
+// contain
+
+.contain {
+  .experiences {
+    margin: 3rem 0;
+    display: grid;
+    grid:
+      "timeline content" auto
+      / 100px auto;
+    .timeline {
+      grid-area: timeline;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+      color: gray;
+    }
+    .content {
+      grid-area: content;
+      h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+      h4 {
+        font-size: 1.7rem;
+        font-weight: 400;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// footer
+
+footer {
+  grid-area: footer;
+  padding: 3rem;
+  background: var(--background);
+  h2 {
+    padding: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--title);
+  }
+  form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 3rem;
+      margin: 0 1.5rem;
+      color: var(--title);
+    }
+    input {
+      border: 0;
+      border-bottom: 1px solid var(--hint);
+      background: var(--background);
+      padding: 1rem;
+      &::placeholder {
+        color: var(--hint);
+      }
+    }
+  }
+}
